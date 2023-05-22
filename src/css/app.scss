@@ -1,0 +1,182 @@
+// app global css in SCSS form
+
+.col-fit {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.body--light {
+  .bg-auto {
+    color: #000000;
+    background-color: #FFFFFF;
+  }
+}
+
+.body--dark {
+  .bg-auto {
+    color: #FFFFFF;
+    background-color: $dark;
+  }
+}
+
+// Table Classes
+
+.body--dark {
+  .sticky-header {
+    thead tr:first-child th {
+      background-color: $dark;
+    }
+  }
+  .sticky-index {
+    thead tr:first-child th:first-child {
+      background-color: $dark;
+    }
+    td:first-child {
+      background-color: $dark;
+    }
+  }
+  .column-hover {
+    background-color: $table-dark-hover-background !important;
+  }
+  .column-select {
+    background-color: $table-dark-selected-background !important;
+  }
+  .column-select-hover {
+    background-color: #484848 !important;
+  }
+  .dark-table {
+    background-color: $dark-page;
+    .sticky-header {
+      thead tr:first-child th {
+        background-color: $dark-page;
+      }
+    }
+    .sticky-index {
+      thead tr:first-child th:first-child {
+        background-color: $dark-page;
+      }
+      td:first-child {
+        background-color: $dark-page;
+      }
+    }
+  }
+}
+
+.body--light {
+  .sticky-header {
+    thead tr:first-child th {
+      background-color: white;
+    }
+  }
+  .sticky-index {
+    thead tr:first-child th:first-child {
+      background-color: white;
+    }
+    td:first-child {
+      background-color: white;
+    }
+  }
+  .column-hover {
+    background-color: $table-hover-background !important;
+  }
+}
+
+.disable-hover tbody td:before {
+  background: transparent;
+}
+
+.sticky-header {
+
+  thead tr th {
+    position: sticky;
+    z-index: 200;
+  }
+
+  thead tr:first-child th {
+    top: 0;
+  }
+}
+
+.sticky-index {
+  th:first-child, td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+  }
+  tr:first-child th:first-child {
+    z-index: 3;
+  }
+}
+
+// Stepper Classes
+
+.stepper-no-border .q-stepper__header {
+  border-bottom: 0;
+}
+
+.right-align-stepper .q-stepper__nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+}
+
+.right-align-stepper .q-btn {
+  margin-left: 8px;
+}
+
+// Input Classes
+
+.q-field--outlined .q-field__label {
+  transition: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: opacity, transform, left, top, padding, background-color;
+  transform-origin: left center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.q-field--outlined.q-field--labeled.q-field--float {
+  // Change the label position
+  & .q-field__label {
+    top: 0;
+    z-index: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: white;
+    margin-top: -3px;
+  }
+
+  // Adjust the left position if there is inner prepend
+  & .q-field__prepend + .q-field__control-container .q-field__label {
+    left: -35px;
+  }
+
+  // Reduce the top padding when floating in outlined style
+  & .q-field__control-container {
+    padding-top: 8px; // framework 24px
+
+    & .q-field__native,
+    & .q-field__prefix,
+    & .q-field__suffix {
+      padding-top: 0;
+    }
+  }
+
+  &.q-textarea {
+    & .q-field__control-container {
+      padding-top: 16px; // freamwork 26px
+      padding-bottom: 10px; // Avoid page strange shakes
+
+      & .q-field__native {
+        padding-top: 1px; // Avoid scoll bar in textarea （this from freamwork）
+      }
+    }
+  }
+}
+
+.body--dark {
+  .q-field--outlined.q-field--labeled {
+    & .q-field__label {
+      background-color: var(--q-dark);
+    }
+  }
+}

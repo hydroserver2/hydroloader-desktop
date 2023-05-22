@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+.quasar
+/dist
+/node_modules
